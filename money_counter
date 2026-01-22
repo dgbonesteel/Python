@@ -1,0 +1,33 @@
+import math
+cash = 0
+
+def get_numeric_input(prompt):
+  while True:
+    try:
+      return int(input(prompt))
+    except ValueError:
+      print("Invalid input. Please enter a whole number.")
+
+def money_counter(cash):
+  ones = get_numeric_input("How many ones do you have? \n")
+  fives_count = get_numeric_input("How many fives do you have? \n")
+  fives = fives_count * 5
+  tens_count = get_numeric_input("How many tens do you have? \n")
+  tens = tens_count * 10
+  twenties_count = get_numeric_input("How many twenties do you have? \n")
+  twenties = twenties_count * 20
+  fifties_count = get_numeric_input("How many fifties do you have? \n")
+  fifties = fifties_count * 50
+  hundreds_count = get_numeric_input("How many hundreds do you have? \n")
+  hundreds = hundreds_count * 100
+  cash_total = ones + fives + tens + twenties + fifties + hundreds
+  print (f"This is your total money: {cash_total}")
+  choice = str(input("Would you like to run the program again? "))
+  if choice.lower() in ["y", "yes"]:
+    money_counter(cash)
+  else:
+    print("Goodbye! ")
+    print("Thank you! ")
+
+print("Welcome to the cash counting app!")
+money_counter(cash)
